@@ -1,5 +1,7 @@
 import React from "react";
 
+import "components/InterviewListItem.scss";
+
 export default function InterviewerListItem(props) {
   return (
     <li className="interviewers__item">
