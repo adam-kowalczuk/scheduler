@@ -4,12 +4,9 @@ import classNames from "classnames";
 import "components/InterviewerListItem.scss";
 
 export default function InterviewerListItem(props) {
-
   const listClass = classNames("interviewers__item", {
     "interviewers__item--selected": props.selected
   });
-
-
 
   return (
     <li className={listClass} onClick={() => props.setInterviewer(props.id)}>
