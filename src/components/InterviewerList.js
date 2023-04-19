@@ -10,11 +10,10 @@ export default function InterviewerList(props) {
   const listInterviewers = interviewers.map((interviewer) =>
     <InterviewerListItem
       key={interviewer.id}
-      id={interviewer.id}
       name={interviewer.name}
       avatar={interviewer.avatar}
-      setInterviewer={props.setInterviewer}
       selected={interviewer.id === props.interviewer}
+      setInterviewer={() => props.setInterviewer(interviewer.id)}
     />
   );
 
