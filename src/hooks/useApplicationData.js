@@ -10,6 +10,22 @@ export default function useApplicationData() {
     interviewers: {},
   });
 
+  //Send multiple GET requests to database on initial load for days, appointments and interviewers and update state
+  useEffect(() => {
+    Promise.all([
+      axios.get("api/days"),
+      axios.get("api/appointments"),
+      axios.get("api/interviewers"),
+    ]).then((all) => {
+      setState((prev) => ({
+        ...prev,
+        days: all[0].data,
+        appointments: all[1].data,
+        interviewers: all[2].data,
+      }));
+    });
+  }, []);
+
   //Set appointment day 
   const setDay = (day) => setState({ ...state, day });
 
@@ -24,9 +40,20 @@ export default function useApplicationData() {
       [id]: appointment
     };
 
+    //Find the day where the appointment is booked
+    const foundDay = state.days.find((day) => day.appointments.includes[id]);
+    //Return the number of open spots that match the number of null interviews per day
+    const days = state.days.map((day) => {
+      if (day.name === foundDay.name && state.appointments[id].interview === null) {
+        return { ...day, spots: day.spots-- };
+      } else {
+        return day;
+      }
+    });
+
     return axios.put(`api/appointments/${id}`, { interview })
       .then(() => {
-        setState({ ...state, appointments: appointments });
+        setState({ ...state, appointments: appointments, days });
       });
   };
 
@@ -47,22 +74,6 @@ export default function useApplicationData() {
         setState({ ...state, appointments: appointments });
       });
   };
-
-  //Send multiple GET requests to database for days, appointments and interviewers info
-  useEffect(() => {
-    Promise.all([
-      axios.get("api/days"),
-      axios.get("api/appointments"),
-      axios.get("api/interviewers"),
-    ]).then((all) => {
-      setState((prev) => ({
-        ...prev,
-        days: all[0].data,
-        appointments: all[1].data,
-        interviewers: all[2].data,
-      }));
-    });
-  }, []);
 
   return {
     state,
