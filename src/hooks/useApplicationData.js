@@ -42,7 +42,7 @@ export default function useApplicationData() {
 
     //Find the day where the appointment is booked
     const foundDay = state.days.find((day) => day.appointments.includes(id));
-    //Decrease the number of open appointment spots by 1 if appointment is successfully added
+    //Decrease the number of open appointment spots by 1 for every null interview
     const days = state.days.map((day) => {
       if (day.name === foundDay.name && state.appointments[id].interview === null) {
         return { ...day, spots: day.spots - 1 };
@@ -70,7 +70,7 @@ export default function useApplicationData() {
 
     //Find the day where the appointment is booked
     const foundDay = state.days.find((day) => day.appointments.includes(id));
-    //Increase the number of open appointment spots by 1 if appointment is successfully deleted
+    //Increase the number of open appointment spots by 1 for every interview that isn't null
     const days = state.days.map((day) => {
       if (day.name === foundDay.name && state.appointments[id].interview !== null) {
         return { ...day, spots: day.spots + 1 };
