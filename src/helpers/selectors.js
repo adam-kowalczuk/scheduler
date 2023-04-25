@@ -1,7 +1,7 @@
 //Return an array of all the appoinments for a given day
 export function getAppointmentsForDay(state, day) {
   //Find the day that matches the selected day
-  const foundDay = state.days.find(d => d.name === day)
+  const foundDay = state.days.find(d => d.name === day);
 
   //Check if foundDay exists
   if (!foundDay) {
@@ -21,24 +21,20 @@ export function getInterview(state, interview) {
     return null;
   }
 
-  //Create an array of interviewer objects
-  const interviewers = Object.values(state.interviewers);
-  let revisedInterview;
+  //Get interviewer ID for this interview
+  const interviewerID = interview.interviewer;
 
-  //Loop through interviewers array to find a match with interviewer id from interview, then replace id with interviewer object
-  for (const interviewer of interviewers) {
-    if (interview.interviewer === interviewer.id) {
-      revisedInterview = { ...interview, interviewer: interviewer };
-    }
-  }
+  //Get entire interviewer object using ID
+  const interviewer = state.interviewers[interviewerID];
 
-  return revisedInterview;
+  //Return interview including entire interviewer object
+  return { ...interview, interviewer };
 }
 
 //Return all the interviewers for a given day
 export function getInterviewersForDay(state, day) {
   //Find the day that matches the selected day
-  const foundDay = state.days.find(d => d.name === day)
+  const foundDay = state.days.find(d => d.name === day);
 
   //Check if foundDay exists
   if (!foundDay) {
