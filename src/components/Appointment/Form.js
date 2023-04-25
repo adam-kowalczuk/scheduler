@@ -15,7 +15,7 @@ export default function Form(props) {
   const cancel = function() {
     reset();
     props.onCancel();
-  }
+  };
 
   return (
     <main className="appointment__card appointment__card--create">
