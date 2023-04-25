@@ -8,7 +8,7 @@ export function getAppointmentsForDay(state, day) {
     return [];
   }
 
-  //Create an array with detailed interviewer objects for the foundDay
+  //Create an array with detailed appointment objects for the foundDay
   const appointments = foundDay.appointments.map(id => state.appointments[id]);
 
   return appointments;
