@@ -41,11 +41,11 @@ export default function useApplicationData() {
     };
 
     //Find the day where the appointment is booked
-    const foundDay = state.days.find((day) => day.appointments.includes[id]);
-    //Return the number of open spots that match the number of null interviews per day
+    const foundDay = state.days.find((day) => day.appointments.includes(id));
+    //Reduce the number of open appointment spots by 1 if appointment is successfully added
     const days = state.days.map((day) => {
       if (day.name === foundDay.name && state.appointments[id].interview === null) {
-        return { ...day, spots: day.spots-- };
+        return { ...day, spots: day.spots - 1 };
       } else {
         return day;
       }
@@ -53,7 +53,7 @@ export default function useApplicationData() {
 
     return axios.put(`api/appointments/${id}`, { interview })
       .then(() => {
-        setState({ ...state, appointments: appointments, days });
+        setState({ ...state, appointments, days });
       });
   };
 
