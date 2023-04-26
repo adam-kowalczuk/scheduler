@@ -47,7 +47,8 @@ describe("Application", () => {
 
     expect(getByText(appointment, "Saving")).toBeInTheDocument();
 
-    // console.log(prettyDOM(appointment));
+    await waitForElement(() => getByText(appointment, "Lydia Miller-Jones"));
+
   });
 })
 
