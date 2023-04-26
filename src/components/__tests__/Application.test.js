@@ -52,7 +52,7 @@ describe("Application", () => {
       queryByText(day, "Monday")
     );
 
-    expect(getByText(day, /no spots remaining/i)).toBeInTheDocument();
+    expect(getByText(day, "no spots remaining")).toBeInTheDocument();
 
   });
 })
