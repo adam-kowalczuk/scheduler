@@ -11,7 +11,8 @@ import {
   getByText,
   getAllByTestId,
   getByAltText,
-  getByPlaceholderText
+  getByPlaceholderText,
+  queryByText
 } from "@testing-library/react";
 
 afterEach(cleanup);
@@ -43,11 +44,15 @@ describe("Application", () => {
 
     fireEvent.click(getByText(appointment, "Save"));
 
-    debug();
-
     expect(getByText(appointment, "Saving")).toBeInTheDocument();
 
     await waitForElement(() => getByText(appointment, "Lydia Miller-Jones"));
+
+    const day = getAllByTestId(container, "day").find(day =>
+      queryByText(day, "Monday")
+    );
+
+    expect(getByText(day, /no spots remaining/i)).toBeInTheDocument();
 
   });
 })
