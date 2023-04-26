@@ -27,24 +27,23 @@ export default function useApplicationData() {
   }, []);
 
   // Update the number of open appointment spots per day
-  // const updateSpots = (id) => {
-  //   //Find the day where the appointment is booked
-  //   const foundDay = state.days.find((day) => day.appointments.includes(id));
-  //   //Increase or decrease the number of open appointment spots by 1 for every null interview
-  //   const days = state.days.map((day) => {
-  //     if (day.name === foundDay.name) {
-  //       if (state.appointments[id].interview === null) {
-  //         return { ...day, spots: day.spots - 1 };
-  //       } else {
-  //         return { ...day, spots: day.spots + 1 };
-  //       }
-  //     } else {
-  //       return { ...day };
-  //     }
-  //   });
+  const updateSpots = (state, appointments) => {
+    //Find the day
+    const dayObj = state.days.find(d => d.name === state.day);
 
-  //   return days;
-  // };
+    //Count the number of spots available for given day
+    let spots = 0;
+    for (let id of dayObj.appointments) {
+      if (!appointments[id].interview) {
+        spots++;
+      }
+    }
+
+    //Create a new day with updated spots
+    const day = { ...dayObj, spots };
+    //Return an updated days array
+    return state.days.map(d => d.name === state.day ? day : d);
+  };
 
   //Sets current day
   const setDay = (day) => setState({ ...state, day });
@@ -60,18 +59,8 @@ export default function useApplicationData() {
       [id]: appointment
     };
 
-    const foundDay = state.days.find((day) => day.appointments.includes(id));
-    //Increase or decrease the number of open appointment spots by 1 for every null interview
-    const days = state.days.map((day) => {
-      if (day.name === foundDay.name && state.appointments[id].interview === null) {
-        return { ...day, spots: day.spots - 1 };
-      } else {
-        return { ...day };
-      }
-    });
-
-    //Update (decrease) the spots available on given day
-    // const days = updateSpots(id);
+    //Update (decrease) the spots available on a given day and return updated days array
+    const days = updateSpots(state, appointments);
 
     return axios.put(`api/appointments/${id}`, { interview })
       .then(() => {
@@ -90,18 +79,8 @@ export default function useApplicationData() {
       [id]: appointment
     };
 
-    const foundDay = state.days.find((day) => day.appointments.includes(id));
-    //Increase or decrease the number of open appointment spots by 1 for every null interview
-    const days = state.days.map((day) => {
-      if (day.name === foundDay.name && state.appointments[id].interview !== null) {
-        return { ...day, spots: day.spots + 1 };
-      } else {
-        return { ...day };
-      }
-    });
-
-    //Update (increase) the spots available on a given
-    // const days = updateSpots(id);
+    // Update (increase) the spots available on a given day and return updated days array
+    const days = updateSpots(state, appointments);
 
     return axios.delete(`api/appointments/${id}`)
       .then(() => {
