@@ -88,7 +88,7 @@ export default function Appointment(props) {
           onSave={save}
         />
       )}
-      {mode === ERROR_SAVE && <Error message="Could not books appointment" onClose={() => back(CREATE)} />}
+      {mode === ERROR_SAVE && <Error message="Could not book appointment" onClose={() => back(CREATE)} />}
       {mode === ERROR_DELETE && <Error message="Could not cancel appointment" onClose={() => back(SHOW)} />}
     </article>
   );
