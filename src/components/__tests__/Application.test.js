@@ -32,7 +32,7 @@ describe("Application", () => {
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
     const appointments = getAllByTestId(container, "appointment");
-    const appointment = getAllByTestId(container, "appointment")[0];
+    const appointment = appointments[0];
 
     fireEvent.click(getByAltText(appointment, "Add"));
 
@@ -43,7 +43,7 @@ describe("Application", () => {
 
     fireEvent.click(getByText(appointment, "Save"));
 
-    // If the alt tag, placeholder text or button text is different for your project, you will need to update it to match.
+    console.log(prettyDOM(appointment));
   });
 })
 
