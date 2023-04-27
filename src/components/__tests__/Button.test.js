@@ -31,29 +31,33 @@ it("renders a danger button", () => {
 });
 
 it("renders a clickable button", () => {
+  /* 1. Create mock handleClick function */
   const handleClick = jest.fn();
+  /* 2. Render clickable button */
   const { getByText } = render(
     <Button onClick={handleClick}>Clickable</Button>
   );
-
+  /* 3. Click button */
   const button = getByText("Clickable");
 
   fireEvent.click(button);
-
+  /* 4. Check if button has been clicked once */
   expect(handleClick).toHaveBeenCalledTimes(1);
 });
 
 it("renders a disabled button", () => {
+  /* 1. Create mock handleClick function */
   const handleClick = jest.fn();
+  /* 2. Render disabled button */
   const { getByText } = render(
     <Button disabled onClick={handleClick}>
       Disabled
     </Button>
   );
-
+  /* 3. Click button */
   const button = getByText("Disabled");
 
   fireEvent.click(button);
-
+  /* 4. Check that button has not been clicked */
   expect(handleClick).toHaveBeenCalledTimes(0);
 });
