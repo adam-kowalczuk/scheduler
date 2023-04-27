@@ -127,7 +127,7 @@ describe("Application", () => {
   //Test whether an error message appears on unsuccessful appointment save
   it("shows the save error when failing to save an appointment", async () => {
     axios.put.mockRejectedValueOnce();
-    const { container, debug } = render(<Application />);
+    const { container } = render(<Application />);
 
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
@@ -155,7 +155,6 @@ describe("Application", () => {
     );
 
     expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
-    debug();
   });
 
   //Test whether an error message displays on unsuccessful appointment deletion
