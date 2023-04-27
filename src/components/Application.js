@@ -25,7 +25,7 @@ export default function Application(props) {
   //Get the interviewers for the day
   const interviewers = getInterviewersForDay(state, state.day);
 
-  //Render an Appointment component using info from each appointment
+  //Render Appointment components using info from each appointment
   const appointments = getAppointmentsForDay(state, state.day).map((appointment) => {
     return (
       <Appointment
