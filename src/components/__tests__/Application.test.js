@@ -30,8 +30,9 @@ describe("Application", () => {
 
   //Test whether an appointment can be successfully saved
   it("loads data, books an interview and reduces the spots remaining for Monday by 1", async () => {
+    // 1. Render the Application.
     const { container } = render(<Application />);
-
+    // 2. Wait until the text "Archie Cohen" is displayed.
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
     // 3. Click the "Add" button on the first empty appointment.
@@ -127,8 +128,9 @@ describe("Application", () => {
   //Test whether an error message appears on unsuccessful appointment save
   it("shows the save error when failing to save an appointment", async () => {
     axios.put.mockRejectedValueOnce();
+    // 1. Render the Application.
     const { container } = render(<Application />);
-
+    // 2. Wait until the text "Archie Cohen" is displayed.
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
     // 3. Click the "Add" button on the first empty appointment.
