@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function useVisualMode(initialMode) {
   const [history, setHistory] = useState([initialMode]);
 
-  //Set new mode and add to history
+  //Add newMode to history
   const transition = function(newMode, replace = false) {
     //If replace is truthy, remove last element in history and add newMode. Otherwise, just add newMode
     if (replace) {
@@ -21,6 +21,7 @@ export default function useVisualMode(initialMode) {
   };
 
   return {
+    //Set mode as final element in history array
     mode: history[history.length - 1],
     transition,
     back
