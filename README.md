@@ -41,7 +41,7 @@ This project was created solely for gaining experience with React and various te
 
 ## Getting Started
 
-Install dependencies with `npm install`.
+Clone this repository onto your local device and install dependencies with `npm install`.
 
 ## Running Webpack Development Server
 
