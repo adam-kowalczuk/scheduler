@@ -1,3 +1,4 @@
+//Mock database data
 const fixtures = {
   days: [
     {
@@ -53,8 +54,10 @@ const fixtures = {
   }
 };
 
+//Mock axios calls
 export default {
   defaults: { baseURL: "" },
+  //GET requests
   get: jest.fn(url => {
     if (url === "api/days") {
       return Promise.resolve({
@@ -65,7 +68,6 @@ export default {
     }
 
     if (url === "api/appointments") {
-      /* Resolve appointments data */
       return Promise.resolve({
         status: 200,
         statusText: "OK",
@@ -74,7 +76,6 @@ export default {
     }
 
     if (url === "api/interviewers") {
-      /* Resolve interviewers data */
       return Promise.resolve({
         status: 200,
         statusText: "OK",
@@ -82,14 +83,14 @@ export default {
       });
     }
   }),
-
+  //PUT request
   put: jest.fn(() => {
     return Promise.resolve({
       status: 204,
       statusText: "No Content"
     });
   }),
-
+  //DELETE request
   delete: jest.fn(() => {
     return Promise.resolve({
       status: 204,
