@@ -158,7 +158,7 @@ describe("Application", () => {
   });
 
   //Test whether an error message displays on unsuccessful appointment deletion
-  it("loads data, books an interview and increases the spots remaining for Monday by 1", async () => {
+  it("shows the delete error when failing to delete an existing appointment", async () => {
     axios.delete.mockRejectedValueOnce();
     // 1. Render the Application.
     const { container } = render(<Application />);
@@ -180,7 +180,7 @@ describe("Application", () => {
     expect(getByText(appointment, "Deleting")).toBeInTheDocument();
     // 7. Wait until the element with the "Error" button is displayed.
     await waitForElement(() => getByText(appointment, "Error"));
-    // 8. Check that the DayListItem with the text "Monday" also has the text "2 spots remaining".
+    // 8. Check that the DayListItem with the text "Monday" also has the text "1 spot remaining".
     const day = getAllByTestId(container, "day").find(day =>
       queryByText(day, "Monday")
     );
