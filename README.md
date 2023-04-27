@@ -17,7 +17,7 @@ This project was created solely for gaining experience with React and various te
 - axios: 0.20.0
 - classnames: 2.2.6
 - normalize.css: 8.0.1
-- react-dom: 16.9.0
+- react: 16.9.0
 - react-dom: 16.9.0
 - react-hooks: 1.0.1
 - react-scripts: 3.4.4
