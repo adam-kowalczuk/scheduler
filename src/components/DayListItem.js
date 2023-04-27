@@ -9,6 +9,7 @@ export default function DayListItem(props) {
     "day-list__item--full": props.spots === 0
   });
 
+  //Display different message depending on appointment spots remaining
   const formatSpots = function() {
     if (props.spots === 0) {
       return 'no spots remaining';
