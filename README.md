@@ -6,9 +6,11 @@ This project was created solely for gaining experience with React and various te
 
 ## Final Product
 
-!["Tweeter was created using 'Mobile First' design principles"](https://github.com/adam-kowalczuk/tweeter/blob/master/docs/mobile.png?raw=true)
-!["A view of the app's desktop layout"](https://github.com/adam-kowalczuk/tweeter/blob/master/docs/desktop.png?raw=true)
-!["A simple design for a world-changing message"](https://github.com/adam-kowalczuk/tweeter/blob/master/docs/tweet-box.png?raw=true) 
+!["A view of booked appointments"](https://github.com/adam-kowalczuk/scheduler/blob/master/docs/appointment-hover.png?raw=true)
+!["Book an appointment with this simple form"](https://github.com/adam-kowalczuk/scheduler/blob/master/docs/appointment-form.png?raw=true)
+!["Careful, you must enter your name and select an interviewer"](https://github.com/adam-kowalczuk/scheduler/blob/master/docs/appointment-form-error.png?raw=true) 
+!["Maybe you need to cancel your appointment"](https://github.com/adam-kowalczuk/scheduler/blob/master/docs/confirm.png?raw=true) 
+!["Uh oh! Looks like there was an error cancelling your appointment"](https://github.com/adam-kowalczuk/scheduler/blob/master/docs/error.png?raw=true) 
 
 ## Dependencies
 
