@@ -49,6 +49,12 @@ Clone this repository onto your local device and install dependencies with `npm 
 npm start
 ```
 
+## Running PostgreSQL Database
+
+Fork and clone the [Scheduler_API](https://github.com/lighthouse-labs/scheduler-api) database and follow that README for configuration.
+
+Both servers run concurrently, and requests are proxied from Webpack to the API server.
+
 ## Running Jest Test Framework
 
 ```sh
