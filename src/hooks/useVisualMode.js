@@ -4,7 +4,7 @@ export default function useVisualMode(initialMode) {
   const [history, setHistory] = useState([initialMode]);
 
   //Add newMode to history
-  const transition = function(newMode, replace = false) {
+  const transition = function (newMode, replace = false) {
     //If replace is truthy, remove last element in history and add newMode. Otherwise, just add newMode
     if (replace) {
       setHistory((prev) => [...prev.slice(0, prev.length - 1), newMode]);
@@ -14,7 +14,7 @@ export default function useVisualMode(initialMode) {
   };
 
   //Go back to previous mode
-  const back = function() {
+  const back = function () {
     if (history.length > 1) {
       setHistory((prev) => [...prev.slice(0, prev.length - 1)]);
     }
