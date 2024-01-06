@@ -1,16 +1,16 @@
 # Interview Scheduler
 
-Scheduler is a single-page app (SPA) made with React and tested using Storybook, Jest, and Cypress. It allows users to manage appointments with a host of interviewers. 
+Scheduler is a single-page app (SPA) made with React and tested using Storybook, Jest, and Cypress. It allows users to manage appointments with a host of interviewers.
 
-This project was created solely for gaining experience with React and various testing frameworks. 
+This project was created solely for gaining experience with React and various testing frameworks. It is currently deployed [here](https://enchanting-pixie-b32c29.netlify.app/) via Netlify and Railway.app.
 
 ## Final Product
 
 !["A view of booked appointments"](https://github.com/adam-kowalczuk/scheduler/blob/master/docs/appointment-hover.png?raw=true)
 !["Book an appointment with this simple form"](https://github.com/adam-kowalczuk/scheduler/blob/master/docs/appointment-form.png?raw=true)
-!["Careful, you must enter your name and select an interviewer"](https://github.com/adam-kowalczuk/scheduler/blob/master/docs/appointment-form-error.png?raw=true) 
-!["Maybe you need to cancel your appointment"](https://github.com/adam-kowalczuk/scheduler/blob/master/docs/confirm.png?raw=true) 
-!["Uh oh! Looks like there was an error cancelling your appointment"](https://github.com/adam-kowalczuk/scheduler/blob/master/docs/error.png?raw=true) 
+!["Careful, you must enter your name and select an interviewer"](https://github.com/adam-kowalczuk/scheduler/blob/master/docs/appointment-form-error.png?raw=true)
+!["Maybe you need to cancel your appointment"](https://github.com/adam-kowalczuk/scheduler/blob/master/docs/confirm.png?raw=true)
+!["Uh oh! Looks like there was an error cancelling your appointment"](https://github.com/adam-kowalczuk/scheduler/blob/master/docs/error.png?raw=true)
 
 ## Dependencies
 
@@ -21,7 +21,7 @@ This project was created solely for gaining experience with React and various te
 - react-dom: 16.9.0
 - react-hooks: 1.0.1
 - react-scripts: 3.4.4
-  
+
 ## Dev Dependencies
 
 - @babel/core: 7.4.3
